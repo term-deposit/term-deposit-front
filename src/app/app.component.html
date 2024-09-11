@@ -1,0 +1,32 @@
+<!-- app.component.html -->
+<div class="container">
+  <nav class="sidebar">
+    <ul>
+      <li (click)="toggleSubmenu()">Ejemplo</li>
+      <ul *ngIf="isSubmenuOpen" class="submenu">
+        <li (click)="openOverlay()">Inverciones</li>
+        <li (click)="openOverlay()">Deposito a plazo</li>
+      </ul>
+    </ul>
+  </nav>
+
+  <div *ngIf="showOverlay" class="overlay">
+    <div class="overlay-content">
+      <h2>Simular</h2>
+      <form>
+        <label for="monto">Monto:</label>
+        <input type="text" id="monto" name="monto" />
+
+        <label for="periodo">Periodo:</label>
+        <input type="text" id="periodo" name="periodo" />
+
+        <button type="button" (click)="simulate()">Simular</button>
+        <button type="button" (click)="closeOverlay()">Cerrar</button>
+        <button></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<router-outlet />
